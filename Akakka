@@ -1,0 +1,40 @@
+fun main() {
+    // 1. Nhập thông tin sinh viên và điểm số từ bàn phím
+    print("Nhập tên sinh viên: ")
+    val tenSinhVien = readLine() ?: "Chưa rõ"
+
+    print("Nhập điểm Toán (math): ")
+    val diemToan = readLine()?.toDoubleOrNull() ?: 0.0
+
+    print("Nhập điểm Lập trình (programming): ")
+    val diemLapTrinh = readLine()?.toDoubleOrNull() ?: 0.0
+
+    print("Nhập điểm Cơ sở dữ liệu (database): ")
+    val diemCoSoDuLieu = readLine()?.toDoubleOrNull() ?: 0.0
+
+    // 2. Thực hiện các phép tính
+    // Tổng điểm = Điểm Toán + Điểm Lập trình + Điểm Cơ sở dữ liệu
+    val tongDiem = diemToan + diemLapTrinh + diemCoSoDuLieu
+
+    // Điểm trung bình = Tổng điểm chia cho 3 môn
+    val diemTrungBinh = tongDiem / 3.0
+
+    // Tìm điểm cao nhất trong 3 môn
+    val diemCaoNhat = maxOf(diemToan, diemLapTrinh, diemCoSoDuLieu)
+
+    // Kiểm tra xem sinh viên có đạt không (Điểm trung bình >= 5.0)
+    val coDatKhong = diemTrungBinh >= 5.0
+
+    // 3. In kết quả ra màn hình
+    println("\n--- KẾT QUẢ HỌC TẬP ---")
+    println("Họ tên sinh viên: $tenSinhVien")
+    println("• Tổng điểm: $tongDiem")
+    println("• Điểm trung bình: $diemTrungBinh")
+    println("• Điểm cao nhất: $diemCaoNhat")
+    
+    if (coDatKhong) {
+        println("• Kết quả: Sinh viên ĐẠT (GPA >= 5.0)")
+    } else {
+        println("• Kết quả: Sinh viên KHÔNG ĐẠT (GPA < 5.0)")
+    }
+}
